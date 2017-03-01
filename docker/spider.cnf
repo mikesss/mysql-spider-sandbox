@@ -1,0 +1,9 @@
+[mysqld]
+general_log = ON
+log_output = 'table'
+spider_general_log=ON
+spider_log_result_errors=1
+spider_log_result_error_with_sql=3
+
+spider_internal_sql_log_off = 0
+spider_remote_sql_log_off = 0

@@ -1,6 +1,38 @@
-version: '2'
+version: '3'
 services:
+
   mysql_spider:
-    build: .
+    build: ./docker
     ports:
       - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: spider
+      MYSQL_DATABASE: spider
+      MYSQL_USER: spider
+      MYSQL_PASSWORD: spider
+    volumes:
+      - ./scripts/spider:/docker-entrypoint-initdb.d
+
+  mysql_backend1:
+    image: mysql:5.5
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: spider
+      MYSQL_DATABASE: spider
+      MYSQL_USER: spider
+      MYSQL_PASSWORD: spider
+    volumes:
+      - ./scripts/mysql:/docker-entrypoint-initdb.d
+
+  mysql_backend2:
+    image: mysql:5.5
+    ports:
+      - "3309:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: spider
+        MYSQL_DATABASE: spider
+        MYSQL_USER: spider
+        MYSQL_PASSWORD: spider
+    volumes:
+      - ./scripts/mysql:/docker-entrypoint-initdb.d

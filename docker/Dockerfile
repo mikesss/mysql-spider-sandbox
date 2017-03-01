@@ -30,6 +30,9 @@ COPY docker-entrypoint.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
+# copy in spider conf
+COPY spider.cnf /etc
+
 # start mysql
 EXPOSE 3306
-CMD ["/usr/local/mysql/bin/mysqld_safe", "--user=mysql"]
+CMD ["/usr/local/mysql/bin/mysqld_safe", "--defaults-extra-file=/etc/spider.cnf", "--user=mysql"]
