@@ -16,7 +16,7 @@ The Spider MySQL server also has its `general_log` enabled, so you can observe w
 
 The Spider and two MySQL instances expose themselves on ports `3307`, `3308`, and `3309` respectively.  The server at `3307` is the one you should connect to in order to mess around with the Spider engine, but connecting to `3308` and `3309` will allow you to check how the data is sharding.
 
-All MySQL servers have a user named `spider` with password `spider`.
+All MySQL servers have a user named `spider` with password `spider`.  Root user has no password.
 
 ## How to Build
 Simply run:
